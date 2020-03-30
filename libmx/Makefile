@@ -1,6 +1,6 @@
 NAME = libmx.a
 
-CC = clang
+CC = gcc
 
 INC = libmx.h
 
@@ -43,6 +43,7 @@ install:
 	@ar rcs $(NAME) $(OBJ)
 	@mkdir -p obj
 	@mv $(OBJ) ./obj
+	@rm -rf $(SRC) $(INC)
 
 uninstall: clean
 	@rm -rf $(NAME)

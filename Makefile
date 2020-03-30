@@ -4,39 +4,37 @@ CC = gcc
 
 INC = ./inc/ush.h ./libmx/inc/libmx.h\
 
-INCL = ./libmx/inc/libmx.h \
+LIBA = libmx.a
+
+OBJD = obj
 
 FILES = mx_main \
 
-SRC = $(addsuffix .c, $(FILES))
+OBJO = $(patsubst %, $(OBJD)/%, $(addsuffix .o, $(FILES)))
 
-SRCS = $(addprefix src/, $(SRC))
+CFLGS = -std=c11 -Wall -Wpedantic -Wextra -Werror
 
-OBJ = $(addsuffix .o, $(FILES))
+all: install
 
-OBJO = $(addprefix obj/, $(OBJ))
+$(OBJD):
+	mkdir -p $@
 
-CFLGS = -std=c11 -Wall -Wpedantic -Wextra #-Werror
+install: $(OBJD) $(LIBA) $(OBJO)
+	$(CC) $(CFLGS) libmx/libmx.a $(OBJO) -o $(NAME)
 
-all: crt_dir install
+$(LIBA):
+	make -C libmx -f Makefile install
 
-crt_dir:
-	@mkdir -p obj
-
-install: $(OBJO)
-	@make -C libmx -f Makefile install
-	@$(CC) -o $(CFLGS) $^ libmx/libmx.a $(NAME)
-
-obj/%.o: src/%.c $(INC)
-	@$(CC) $(CFLGS) -c -o $@ -Ilibmx/inc/ -Iinc
+$(OBJD)/%.o: src/%.c $(INC)
+	$(CC) $(CFLGS) -c -o $@ $< -Ilibmx/inc/ -Iinc
 
 uninstall: clean
-	@rm $(NAME)
+	@rm -rf $(NAME)
 	@make -C libmx -f Makefile uninstall
 
 clean:
 	@make -C libmx -f Makefile clean
-	@rm -rf ./obj
+	@rm -rf obj
 
 reinstall: uninstall all
 
