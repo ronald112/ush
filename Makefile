@@ -12,7 +12,7 @@ FILES = $(wildcard src/*.c)
 
 OBJO = $(FILES:src%.c=obj%.o)
 
-CFLGS = -std=c11 -Wall -Wpedantic -Wextra -Werror
+CFLGS = -std=c11 -Wall -Wpedantic -Wextra #-Werror
 
 all: install
 

@@ -2,8 +2,7 @@
 #define ULS_H
 
 #include "libmx.h"
-
-#include <errno.h>
-#include <sys/types.h>
+#include "includes.h"
+#include "prototypes.h"
 
 #endif
