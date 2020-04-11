@@ -8,9 +8,9 @@ LIBA = libmx.a
 
 OBJD = obj
 
-FILES = mx_main \
+FILES = $(wildcard src/*.c)
 
-OBJO = $(patsubst %, $(OBJD)/%, $(addsuffix .o, $(FILES)))
+OBJO = $(FILES:src%.c=obj%.o)
 
 CFLGS = -std=c11 -Wall -Wpedantic -Wextra -Werror
 
