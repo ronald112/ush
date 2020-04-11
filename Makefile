@@ -1,8 +1,8 @@
 NAME = ush
 
-CC = gcc
+CC = clang
 
-INC = ./inc/ush.h ./libmx/inc/libmx.h\
+INC = $(wildcard inc/*.h) $(wildcard libmx/inc/*.h)
 
 LIBA = libmx.a
 
