@@ -4,8 +4,7 @@ char *mx_strsep(char **src_str, char *delim) {
     char *first_char = *src_str;
 
     if (first_char) {
-        for (; *src_str != '|' && *src_str != '\0'
-             && *src_str != NULL; *src_str++);
+        *src_str += strcspn(*src_str, delim);
         if (**src_str)
             *(*src_str)++ = '\0';
         else

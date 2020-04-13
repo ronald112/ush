@@ -1,16 +1,20 @@
 #include "ush.h"
 
 int main() {
-    char input[1000] = "\0";
+    char input_history[MAX_HIST_BUF] = "\0";
+    char *input = NULL;
 
     while (1) {
         mx_show_prompt();
-        mx_read_input(input);
+        mx_read_input(&input);
 
-        if (strcmp(input, "exit") == 0)
+        if (input == NULL) {
+            printf("\n");
             exit(0);
+        }
         printf("%s", input);
     }
+
     printf("Success!\n");
     return 0;
 }
