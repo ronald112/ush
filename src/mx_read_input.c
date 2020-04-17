@@ -1,6 +1,6 @@
 #include "ush.h"
 
-void mx_read_input(char **input_main) {
-    size_t size = MAX_LNG_LINE;
-    getline(input_main, &size, stdin);
+void mx_read_input(t_ush *main_ush) {
+    if(fgets(main_ush->, sizeof(*input_main), stdin) == NULL)
+        break;
 }
