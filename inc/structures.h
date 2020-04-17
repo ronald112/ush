@@ -1,10 +1,10 @@
 #pragma once
 
-#include "ush.h"
+#include "defines.h"
 
-typedef struct s_ush {
-    char *i_hist[MAX_HIST_BUF];
-    char *i_str;
-    char *parsed_args[MAX_LNG_LINE];
-    int nm
-}              t_ush;
+typedef struct {
+    char *i_hist[MAX_HIST_BUF + 1];
+    char i_str[MAX_LNG_LINE + 1];
+    char *parsed_args[MAX_HIST_BUF + 1];
+    int nm;
+} t_ush;
