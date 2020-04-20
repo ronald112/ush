@@ -11,4 +11,6 @@ char *mx_strsep(char **src_str, char *delim);
 // Make separate arguments from input str
 void mx_istr_to_args(t_ush *main_ush);
 // create or push at the begining new node
-t_history *mx_push_front_char(t_ush *main_ush);
+void mx_push_front_char(t_ush *main_ush);
+// Check i_str for ';' character and return index on it
+int mx_semicolon_check(t_ush *main_ush);

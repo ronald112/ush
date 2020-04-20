@@ -7,7 +7,6 @@ typedef struct s_history {
     struct s_history *next;
 }              t_history;
 
-
 typedef struct s_command {
     bool pipe;
     char *parsed_args[MAX_ARGS];
@@ -16,6 +15,7 @@ typedef struct s_command {
 
 typedef struct {
     char *sep_comm[MAX_HIST_BUF];
-    t_history *i_struct;
+    t_history *lhist_str;
     t_command *p_args;
+    int hist_count;
 } t_ush;
