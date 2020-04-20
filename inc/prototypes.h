@@ -10,3 +10,5 @@ int mx_read_input(t_ush *main_ush);
 char *mx_strsep(char **src_str, char *delim);
 // Make separate arguments from input str
 void mx_istr_to_args(t_ush *main_ush);
+// create or push at the begining new node
+t_history *mx_push_front_char(t_ush *main_ush);

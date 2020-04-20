@@ -3,6 +3,7 @@
 int mx_read_input(t_ush *main_ush) {
     int exit_status = 0;
 
+    mx_push_front_char(main_ush);
     if(fgets(main_ush->i_str, sizeof(main_ush->i_struct->i_str), stdin) == NULL) {
         exit_status = 1;
     }
