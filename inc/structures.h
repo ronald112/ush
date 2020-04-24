@@ -12,14 +12,14 @@ typedef struct s_pargs {
     struct s_pargs *next;
 }              t_pargs;
 
-typedef struct s_command {
-    t_pargs *pargs;
-    struct s_command *next;
-}              t_command;
+typedef struct s_semicomm {
+    t_pargs *sargs;
+    struct s_semicomm *next;
+}              t_semicomm;
 
 typedef struct {
     char *sep_comm[MAX_HIST_BUF];
     t_history *lhist_str;
-    t_command *p_args;
+    t_semicomm *p_args;
     int hist_count;
 } t_ush;
