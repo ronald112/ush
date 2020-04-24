@@ -12,6 +12,7 @@ static t_ush *init_struct() {
 int main() {
     t_ush *main_ush = init_struct();
 
+    signal(SIGINT, SIG_IGN);
     while (1) {
         mx_show_prompt();
         if (mx_read_input(main_ush))

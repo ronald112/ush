@@ -7,9 +7,13 @@ typedef struct s_history {
     struct s_history *next;
 }              t_history;
 
+typedef struct s_pargs {
+    char *args[MAX_ARGS];
+    struct s_pargs *next;
+}              t_pargs;
+
 typedef struct s_command {
-    bool pipe;
-    char *parsed_args[MAX_ARGS];
+    t_pargs *pargs;
     struct s_command *next;
 }              t_command;
 
