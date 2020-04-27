@@ -25,12 +25,14 @@ void mx_pbsemicomm(t_ush *ush) {
         t_semicomm *i = ush->p_args;
 
         tmp_semi->next = NULL;
+        tmp_semi->sargs = NULL;
         for (; i->next; i = i->next);
         i->next = tmp_semi;
     }
     else {
         ush->p_args = (t_semicomm *)malloc(sizeof(t_semicomm));
         ush->p_args->next = NULL;
+        ush->p_args->sargs = NULL;
     }
 }
 
@@ -39,6 +41,7 @@ void mx_pfsemicomm(t_ush *ush) {
         t_semicomm *tmp_semi = (t_semicomm *)malloc(sizeof(t_semicomm));
 
         tmp_semi->sargs = (t_pargs *)malloc(sizeof(t_pargs));
+        tmp_semi->sargs->next = NULL;
         tmp_semi->next = ush->p_args;
         ush->p_args = tmp_semi;
     }

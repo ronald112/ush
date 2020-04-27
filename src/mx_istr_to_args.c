@@ -1,6 +1,6 @@
 #include "ush.h"
 
-static void mx_set_args(t_ush *ush, char *str) {
+static void set_args(t_ush *ush, char *str) {
     if (str) {
         t_semicomm *cur_comm = ush->p_args;
         t_pargs *cur_args = NULL;
@@ -13,13 +13,13 @@ static void mx_set_args(t_ush *ush, char *str) {
     }
 }
 
-void mx_add_semicolon(t_ush *ush) {
+static void convert_to_list(t_ush *ush) {
     char *str_point = &ush->lhist_str->i_str[0];
     char *result = mx_strsep(&str_point, " ");
 
     mx_pbsemicomm(ush);
     mx_pbargs(ush);
-    mx_set_args(ush, result);
+    set_args(ush, result);
     while (result) {
         result = mx_strsep(&str_point, " ");
         if (!result)
@@ -28,14 +28,13 @@ void mx_add_semicolon(t_ush *ush) {
             mx_pbsemicomm(ush);
             mx_pbargs(ush);
         }
-        else if (strcmp(result, "|") == 0) {
+        else if (strcmp(result, "|") == 0)
             mx_pbargs(ush);
-        }
         else
-            mx_set_args(ush, result);
+            set_args(ush, result);
     }
 }
 
 void mx_istr_to_args(t_ush *ush) {
-    mx_add_semicolon(ush);
+    convert_to_list(ush);
 }

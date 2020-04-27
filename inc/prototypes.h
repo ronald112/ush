@@ -10,8 +10,6 @@ int mx_read_input(t_ush *ush);
 char *mx_strsep(char **src_str, char *delim);
 // Make separate arguments from input str
 void mx_istr_to_args(t_ush *ush);
-// Check i_str for ';' character and return index on it
-int mx_semicolon_check(t_ush *ush);
 // create or push at the begining new node
 void mx_pfhistory(t_ush *ush);
 // 
@@ -22,3 +20,5 @@ void mx_pfsemicomm(t_ush *ush);
 void mx_pbargs(t_ush *ush);
 // Clean temp list's in ush
 void mx_clean_ush(t_ush *ush);
+// 
+void mx_execution(t_ush *ush, int *pid_stat);

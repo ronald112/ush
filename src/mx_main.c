@@ -9,15 +9,17 @@ static t_ush *init_struct() {
 
 int main() {
     t_ush *ush = init_struct();
+    int pid_stat = 0;
 
-    signal(SIGINT, SIG_IGN);
+    signal(SIGINT, SIG_DFL);
     while (1) {
         mx_show_prompt();
         if (mx_read_input(ush))
-            break;
-        for (t_history *temp = ush->lhist_str; temp; temp = temp->next)
-            printf("%s\n", temp->i_str);
+            exit(0);
+        //for (t_history *temp = ush->lhist_str; temp; temp = temp->next)
+        //    printf("hist [%s]\n", temp->i_str);
         mx_istr_to_args(ush);
+        mx_execution(ush, &pid_stat);
         mx_clean_ush(ush);
     }
 
