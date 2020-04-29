@@ -18,6 +18,8 @@ void mx_pbsemicomm(t_ush *ush);
 void mx_pfsemicomm(t_ush *ush);
 // 
 void mx_pbargs(t_ush *ush);
+//
+void mx_pfargs(t_ush *ush);
 // Clean temp list's in ush
 void mx_clean_ush(t_ush *ush);
 // 
