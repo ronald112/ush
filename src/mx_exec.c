@@ -26,12 +26,12 @@ static void exec_no_pipe(t_pargs *tmp_j, int *pid_status) {
     int builtin_rslt = 0;
 
     errno = 0;
-    if ((builtin_rslt =  mx_chk_bi_fnk(tmp_j->args[0])) == 1)
-        if (mx_exec_builtin(builtin_rslt) < 0)
+    if ((builtin_rslt =  mx_chk_bi_fnk(tmp_j->args[0])) == 1) {
+        if (mx_exec_builtin(builtin_rslt, tmp_j) < 0)
             mx_cmd_not_fnd(tmp_j->args[0]);
-    else
+    }
+    else 
         exec_no_builtin_no_pipe(tmp_j, pid_status);
-    return;
 }
 
 void mx_execution(t_ush *ush, int *pid_stat) {

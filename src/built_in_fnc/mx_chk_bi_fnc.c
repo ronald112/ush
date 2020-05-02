@@ -8,5 +8,6 @@ int mx_chk_bi_fnk(char *str) {
         if (strcmp(own_cmds[i], str) == 0)
             return i + 1;
     }
+    free(own_cmds);
     return 0;
 }

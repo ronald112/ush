@@ -29,6 +29,8 @@ int mx_chk_bi_fnk(char *str);
 // crt the list of built in functions
 char **mx_set_builtin_fnc();
 // 
-int mx_exec_builtin(int cmd_ind);
+int mx_exec_builtin(int cmd_ind, t_pargs *args);
 // 
 void mx_cmd_not_fnd(char *str);
+//
+void mx_ch_dir(t_pargs *args);

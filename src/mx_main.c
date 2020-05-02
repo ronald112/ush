@@ -15,7 +15,7 @@ int main() {
     while (1) {
         mx_show_prompt();
         if (mx_read_input(ush))
-            exit(0);
+            break;
         //for (t_history *temp = ush->lhist_str; temp; temp = temp->next)
         //    printf("hist [%s]\n", temp->i_str);
         mx_istr_to_args(ush);

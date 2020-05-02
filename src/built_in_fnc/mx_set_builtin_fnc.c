@@ -1,9 +1,10 @@
 #include "ush.h"
 
 char **mx_set_builtin_fnc() {
-    char **own_cmds = (char **)malloc(sizeof(char *));
+    char **own_cmds = (char **)malloc((BUILTIN_FNC + 1) * sizeof(char *));
 
-    own_cmds[0] = (char *)malloc(MAX_LNG_LINE * sizeof(char));
     own_cmds[0] = "exit";
+    own_cmds[1] = "cd";
+    own_cmds[BUILTIN_FNC] = NULL;
     return own_cmds;
 }
