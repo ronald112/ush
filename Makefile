@@ -11,7 +11,9 @@ LIBA = libmx.a
 OBJD = obj
 
 FILES = $(wildcard src/*.c) \
-		$(wildcard src/list_pack/*.c)
+		$(wildcard src/list_pack/*.c) \
+		$(wildcard src/built_in_fnc/*.c) \
+		$(wildcard src/error_print/*.c)
 
 OBJO = $(FILES:src%.c=obj%.o)
 
@@ -24,6 +26,8 @@ all: install
 $(OBJD):
 	@mkdir -p $@
 	@mkdir -p $@/list_pack
+	@mkdir -p $@/built_in_fnc
+	@mkdir -p $@/error_print
 
 install: $(OBJD) $(LIBA) $(OBJO)
 	@$(COMPILE)

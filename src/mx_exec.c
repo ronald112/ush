@@ -9,23 +9,29 @@ static void exec_pipe(t_pargs *tmp_j) {
     }
 }
 
-static void exec_builtin(t_pargs *tmp_j, int *pid_status) {
+static void exec_no_builtin_no_pipe(t_pargs *tmp_j, int *pid_status) {
     pid_t pid = fork();
 
-    errno = 0;
+    signal(SIGINT, SIG_DFL);
     if (pid == 0) {
-        signal(SIGINT, SIG_DFL);
-        if (execvp(tmp_j->args[0], tmp_j->args) < 0) {
-            perror("u$h");
-            strerror(errno);
-            //perror(tmp_j->args[0]);
-        }
+        if (execvp(tmp_j->args[0], tmp_j->args) < 0)
+            mx_cmd_not_fnd(tmp_j->args[0]);
         exit(errno);
     }
-    else {
+    else
         waitpid(pid, pid_status, WUNTRACED);
-        return;
-    }
+}
+
+static void exec_no_pipe(t_pargs *tmp_j, int *pid_status) {
+    int builtin_rslt = 0;
+
+    errno = 0;
+    if ((builtin_rslt =  mx_chk_bi_fnk(tmp_j->args[0])) == 1)
+        if (mx_exec_builtin(builtin_rslt) < 0)
+            mx_cmd_not_fnd(tmp_j->args[0]);
+    else
+        exec_no_builtin_no_pipe(tmp_j, pid_status);
+    return;
 }
 
 void mx_execution(t_ush *ush, int *pid_stat) {
@@ -39,7 +45,7 @@ void mx_execution(t_ush *ush, int *pid_stat) {
             exec_pipe(tmp_j);
         }
         else {
-            exec_builtin(tmp_j, pid_stat);
+            exec_no_pipe(tmp_j, pid_stat);
         }
     }
 }
