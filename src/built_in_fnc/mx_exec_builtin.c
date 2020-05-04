@@ -1,14 +1,13 @@
 #include "ush.h"
 
-int mx_exec_builtin(int cmd_ind, t_pargs *args) {
+int mx_exec_builtin(int cmd_ind, t_pargs *pargs) {
     switch (cmd_ind) {
     case 1: //fallthrough
-        exit(0);
+        return mx_exit(pargs);
     case 2: //fallthrough
-        mx_ch_dir(args);
-        return 0;
+        return mx_ch_dir(pargs);
     default:
         break;
     }
-    return 0;
+    return -1;
 }

@@ -1,8 +1,8 @@
 #pragma once
 
 /*
- * 1 - exit
- * 2 - cd
+ * 1 - exit "status"
+ * 2 - cd "-s, -P, -"
  */
 
 #define MAX_HIST_BUF 1000
