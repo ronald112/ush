@@ -1,6 +1,6 @@
 #pragma once
 
-#include "structures.h"
+#include "ush.h"
 
 // Show u$h prompt in terminal
 void mx_show_prompt(void);
@@ -33,6 +33,8 @@ int mx_exec_builtin(int cmd_ind, t_pargs *pargs);
 // 
 void mx_cmd_not_fnd(char *str);
 // 
-int mx_ch_dir(t_pargs *args);
+int mx_ch_dir(t_pargs *pargs);
+// 
+void mx_error_cd(bool flags[], char **args);
 // 
 int mx_exit(t_pargs *pargs);

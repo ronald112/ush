@@ -10,7 +10,9 @@ int mx_exit(t_pargs *pargs) {
             exit(mx_atoi(pargs->args[1]));
         }
         else {
-            fprintf(stderr, "soe error %s\n", pargs->args[1]);
+            fprintf(stderr,
+                    "zsh: bad math expression: operator expected at `%s'\n",
+                    pargs->args[1]);
             exit(EXIT_SUCCESS);
         }
     }

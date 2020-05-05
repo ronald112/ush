@@ -1,6 +1,6 @@
 #pragma once
 
-#include "defines.h"
+#include "ush.h"
 
 typedef struct s_history {
     char i_str[MAX_LNG_LINE];

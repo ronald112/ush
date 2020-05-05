@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ush.h"
 /*
  * 1 - exit "status"
  * 2 - cd "-s, -P, -"

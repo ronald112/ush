@@ -1,5 +1,6 @@
 #include "ush.h"
 
+// Execute pipe
 static void exec_pipe(t_pargs *tmp_j) {
     printf("pipe\n");
     for (; tmp_j; tmp_j = tmp_j->next) {
