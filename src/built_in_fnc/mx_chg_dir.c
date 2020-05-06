@@ -1,28 +1,18 @@
 #include "ush.h"
 
-static void home_dir(void) {
-    int result = chdir(getenv("HOME"));
-    char *newdir = getenv("HOME");
-
-    if (result < 0) {
-        if (newdir == NULL)
-            fprintf(stderr, "cd: HOME not set\n");
-        else {
-            fprintf(stderr, "cd: %s: ", newdir);
-            perror("");
-        }
-    }
-}
-
 static void exec_chdir(bool flags[4], char **args) {
-    if (flags[3]) {
-        if (chdir(getenv("OLDPWD")) < 0)
-            fprintf(stderr, "cd: no such file or directory: /PWD\n");
+    if (flags[3])
+        mx_exec_cd_flag3();
+    else if (flags[2])
+        mx_exec_cd_flag2();
+    else if (flags[1]) {
+
     }
-    else {
-        if (chdir(args[1]) < 0)
-            fprintf(stderr, "cd: no such file or directory: %s\n", args[1]);
+    else if (flags[0]) {
+
     }
+    else
+        mx_exec_cd_flag0(args[1]);
 }
 
 static void chk_flag_and_args(char **args) {
@@ -48,10 +38,9 @@ static void chk_flag_and_args(char **args) {
 
 int mx_ch_dir(t_pargs *pargs) {
     if (!pargs->args[1])
-        home_dir();
+        mx_exec_cd_flag2();
     else if (pargs->args[1]) {
         chk_flag_and_args(pargs->args);
-        
     }
 
     return 2; // 2 - SUCSESS

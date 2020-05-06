@@ -10,8 +10,14 @@ LIBA = libmx.a
 
 OBJD = obj
 
+SRCDIRS = list_pack \
+			uilt_in_fnc \
+			error_print \
+			env_mics
+
 FILES = $(wildcard src/*.c) \
 		$(wildcard src/list_pack/*.c) \
+		$(wildcard src/env_misc/*.c) \
 		$(wildcard src/built_in_fnc/*.c) \
 		$(wildcard src/error_print/*.c)
 
@@ -28,6 +34,7 @@ $(OBJD):
 	@mkdir -p $@/list_pack
 	@mkdir -p $@/built_in_fnc
 	@mkdir -p $@/error_print
+	@mkdir -p $@/env_misc
 
 install: $(OBJD) $(LIBA) $(OBJO)
 	@$(COMPILE)

@@ -2,8 +2,11 @@
 
 static t_ush *init_struct() {
     t_ush *ush = (t_ush *)malloc(sizeof(t_ush));
+    char *shell_pwd = mx_strjoin(getenv("PWD"), "/ush");
 
     ush->hist_count = 0;
+    setenv("SHELL", shell_pwd, 1);
+    free(shell_pwd);
     return ush;
 }
 

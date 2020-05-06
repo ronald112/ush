@@ -27,7 +27,7 @@ void mx_execution(t_ush *ush, int *pid_stat);
 // check if the str is built in fnc
 int mx_chk_bi_fnk(char *str);
 // crt the list of built in functions
-char **mx_set_builtin_fnc();
+char **mx_set_builtin_fnc(void);
 // 
 int mx_exec_builtin(int cmd_ind, t_pargs *pargs);
 // 
@@ -38,3 +38,13 @@ int mx_ch_dir(t_pargs *pargs);
 void mx_error_cd(bool flags[], char **args);
 // 
 int mx_exit(t_pargs *pargs);
+// 
+int mx_print_env(void);
+// 
+void mx_upd_env_path();
+// 
+void mx_exec_cd_flag3(void);
+// 
+void mx_exec_cd_flag2(void);
+// 
+void mx_exec_cd_flag0(char *path);

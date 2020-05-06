@@ -41,7 +41,6 @@ void mx_execution(t_ush *ush, int *pid_stat) {
 
     for (; tmp_i; tmp_i = tmp_i->next) {
         tmp_j = tmp_i->sargs;
-
         if (tmp_j->next) {
             exec_pipe(tmp_j);
         }
