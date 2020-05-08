@@ -41,10 +41,16 @@ int mx_exit(t_pargs *pargs);
 // 
 int mx_print_env(void);
 // 
-void mx_upd_env_path();
+void mx_upd_env_path(char *new_path);
+// 
+void mx_swap_env_path(void);
 // 
 void mx_exec_cd_flag3(void);
 // 
 void mx_exec_cd_flag2(void);
 // 
+void mx_exec_cd_flag1(char *path);
+//
 void mx_exec_cd_flag0(char *path);
+// 
+void mx_exec_cd_flag_else(char *path);

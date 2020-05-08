@@ -13,5 +13,5 @@
 #define OWN_CMD 1
 #define BUILTIN_FNC 3
 
-    extern char **environ;
+extern char **environ;
 

@@ -6,13 +6,13 @@ static void exec_chdir(bool flags[4], char **args) {
     else if (flags[2])
         mx_exec_cd_flag2();
     else if (flags[1]) {
-
+        mx_exec_cd_flag1(args[2]);
     }
     else if (flags[0]) {
-
+        mx_exec_cd_flag0(args[2]);
     }
     else
-        mx_exec_cd_flag0(args[1]);
+        mx_exec_cd_flag_else(args[1]);
 }
 
 static void chk_flag_and_args(char **args) {
@@ -37,11 +37,11 @@ static void chk_flag_and_args(char **args) {
 }
 
 int mx_ch_dir(t_pargs *pargs) {
-    if (!pargs->args[1])
-        mx_exec_cd_flag2();
-    else if (pargs->args[1]) {
+    if (pargs->args[1]) {
         chk_flag_and_args(pargs->args);
     }
+    else
+        mx_exec_cd_flag2();
 
     return 2; // 2 - SUCSESS
 }
