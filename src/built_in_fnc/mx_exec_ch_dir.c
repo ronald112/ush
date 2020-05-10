@@ -33,19 +33,26 @@ void mx_exec_cd_flag2(void) {
         mx_upd_env_path(NULL);
 }
 
-void mx_exec_cd_flag1(char *path) {
+void mx_exec_cd_flag1(bool flg_s, bool flg_P, char *path) {
     char *r_path = realpath(path, NULL);
 
-    printf("%s\n", path);
-    printf("r_path [%s]\n", r_path);
+    if (r_path && !flg_s) {
+        if (flg_P) {
+            if (chdir(r_path) < 0)
+                fprintf(stderr, "cd: no such file or directory: %s\n", r_path);
+            else
+                mx_upd_env_path(NULL);
+        }
+        else {
+            if (chdir(path) < 0)
+                fprintf(stderr, "cd: no such file or directory: %s\n", path);
+            else
+                mx_upd_env_path(path);
+        }
+    }
+    else
+        fprintf(stderr, "cd: not a directory: %s\n", path);
     free(r_path);
-}
-
-void mx_exec_cd_flag0(char *path) {
-    
-
-    printf("%s\n", path);
-
 }
 
 void mx_exec_cd_flag_else(char *path) {

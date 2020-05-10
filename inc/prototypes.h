@@ -49,8 +49,6 @@ void mx_exec_cd_flag3(void);
 // 
 void mx_exec_cd_flag2(void);
 // 
-void mx_exec_cd_flag1(char *path);
-//
-void mx_exec_cd_flag0(char *path);
+void mx_exec_cd_flag1(bool flg_s, bool flg_P, char *path);
 // 
 void mx_exec_cd_flag_else(char *path);
