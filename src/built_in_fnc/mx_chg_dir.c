@@ -5,9 +5,8 @@ static void exec_chdir(bool flags[4], char **args) {
         mx_exec_cd_flag3();
     else if (flags[2])
         mx_exec_cd_flag2();
-    else if (flags[1] || flags[0]) {
+    else if (flags[1] || flags[0])
         mx_exec_cd_flag1(flags[0], flags[1], args[2]);
-    }
     else
         mx_exec_cd_flag_else(args[1]);
 }

@@ -39,7 +39,7 @@ void mx_error_cd(bool flags[], char **args);
 // 
 int mx_exit(t_pargs *pargs);
 // 
-int mx_print_env(void);
+int mx_env(t_pargs *pargs);
 // 
 void mx_upd_env_path(char *new_path);
 // 
