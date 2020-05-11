@@ -1,13 +1,29 @@
 #include "ush.h"
 
-static void print_env(void) {
+static void set_args(char *args) {
+    int num_args = 0;
+
+    for (int i = 1; args[i]; ++i)
+        num_args += mx_strlen(args[i]) > 0 ? 1 : 0;
+    if ()
+}
+
+static void print_set_env(void) {
+    
     for (int i = 0; environ[i]; ++i) {
         printf("%s\n", environ[i]);
     }
 }
 
-static void chk_flags(char *args) {
+static void chk_flags(bool flags[3], char *args) {
+    if (flags[0] || flags[1]) {
 
+    }
+    else if (flags[2]) {
+        mx_env_unset(args);
+    }
+    else
+        print_set_env();
 }
 
 static void exec_env(char *args) {
@@ -21,6 +37,8 @@ static void exec_env(char *args) {
         else if (strcmp(args[i], "-u") == 0)
             flags[2] = 1;
     }
+    mx_error_env(flags, args);
+    chk_flags(flags, args);
 }
 
 int mx_env(t_pargs *pargs) {

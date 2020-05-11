@@ -52,3 +52,9 @@ void mx_exec_cd_flag2(void);
 void mx_exec_cd_flag1(bool flg_s, bool flg_P, char *path);
 // 
 void mx_exec_cd_flag_else(char *path);
+// 
+void mx_error_env(bool flags[3], char *args);
+// 
+void mx_env_unset(char *args);
+// 
+bool mx_env_val_args(char *args);
