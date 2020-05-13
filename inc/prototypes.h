@@ -53,8 +53,8 @@ void mx_exec_cd_flag1(bool flg_s, bool flg_P, char *path);
 // 
 void mx_exec_cd_flag_else(char *path);
 // 
-void mx_error_env(bool flags[3], char *args);
+void mx_error_env(bool flags[3], char *args[MAX_ARGS], int er_case);
 // 
-void mx_env_unset(char *args);
+void mx_env_unset(char *args[MAX_ARGS]);
 // 
-bool mx_env_val_args(char *args);
+void mx_env_val_args(char *args[MAX_ARGS]);

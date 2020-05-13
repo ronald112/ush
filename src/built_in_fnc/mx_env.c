@@ -1,21 +1,12 @@
 #include "ush.h"
 
-static void set_args(char *args) {
-    int num_args = 0;
-
-    for (int i = 1; args[i]; ++i)
-        num_args += mx_strlen(args[i]) > 0 ? 1 : 0;
-    if ()
-}
-
 static void print_set_env(void) {
-    
     for (int i = 0; environ[i]; ++i) {
         printf("%s\n", environ[i]);
     }
 }
 
-static void chk_flags(bool flags[3], char *args) {
+static void exec_chk_flags(bool flags[3], char *args[MAX_ARGS]) {
     if (flags[0] || flags[1]) {
 
     }
@@ -26,19 +17,24 @@ static void chk_flags(bool flags[3], char *args) {
         print_set_env();
 }
 
-static void exec_env(char *args) {
+static void exec_env(char *args[MAX_ARGS]) {
     bool flags[3] = {0, 0, 0};
+    int er_case = 0;
 
     for(int i = 1; args[i]; ++i) {
         if (strcmp(args[i], "i") == 0)
             flags[0] = 1;
-        else if (strcmp(args[i], "-P") == 0)
-            flags[1] = 1;
+        else if (strcmp(args[i], "-P") == 0) {
+            if (flags[0])
+                er_case = 1;
+            else
+                flags[1] = 1;
+        }
         else if (strcmp(args[i], "-u") == 0)
             flags[2] = 1;
     }
-    mx_error_env(flags, args);
-    chk_flags(flags, args);
+    mx_error_env(flags, args, er_case);
+    exec_chk_flags(flags, args);
 }
 
 int mx_env(t_pargs *pargs) {
