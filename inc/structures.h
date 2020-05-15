@@ -23,3 +23,12 @@ typedef struct {
     t_semicomm *p_args;
     int hist_count;
 } t_ush;
+
+typedef struct {
+    bool flags[3];
+    char *search_path;
+    char *file_name;
+    char *env_names[MAX_ARGS];
+    bool sucsess;
+
+} t_env;

@@ -28,33 +28,33 @@ void mx_execution(t_ush *ush, int *pid_stat);
 int mx_chk_bi_fnk(char *str);
 // crt the list of built in functions
 char **mx_set_builtin_fnc(void);
-// 
+// execute builtin commands
 int mx_exec_builtin(int cmd_ind, t_pargs *pargs);
-// 
+// error case command not found
 void mx_cmd_not_fnd(char *str);
-// 
+// change current directory
 int mx_ch_dir(t_pargs *pargs);
-// 
+// cd error handler
 void mx_error_cd(bool flags[], char **args);
-// 
+// exit command main function
 int mx_exit(t_pargs *pargs);
-// 
+// env command main function
 int mx_env(t_pargs *pargs);
-// 
+// upd PATH variable in environ for cur process
 void mx_upd_env_path(char *new_path);
-// 
+// swap PWD and OLDPWD in environ variable
 void mx_swap_env_path(void);
-// 
+// main execute "-" for cd
 void mx_exec_cd_flag3(void);
-// 
+// main execute HOME case for cd
 void mx_exec_cd_flag2(void);
-// 
+// main execute -sP flag for cd
 void mx_exec_cd_flag1(bool flg_s, bool flg_P, char *path);
-// 
+// common use of cd and ".."
 void mx_exec_cd_flag_else(char *path);
-// 
-void mx_error_env(bool flags[3], char *args[MAX_ARGS], int er_case);
-// 
+// unset one of the environ variables
 void mx_env_unset(char *args[MAX_ARGS]);
-// 
-void mx_env_val_args(char *args[MAX_ARGS]);
+// free object of t_env struct
+void mx_env_free(t_env *my_env);
+// initialize object of t_env struct
+t_env *mx_env_init(t_pargs *pargs);
