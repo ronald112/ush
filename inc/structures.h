@@ -26,9 +26,11 @@ typedef struct {
 
 typedef struct {
     bool flags[3];
-    char *search_path;
-    char *file_name;
-    char *env_names[MAX_ARGS];
+    char *bin_path;
+    char *new_path;
+    char *new_envs[MAX_ARGS];
+    char *uns_envs;
+    int a_ind;
     bool sucsess;
 
 } t_env;
