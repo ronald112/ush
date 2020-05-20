@@ -22,7 +22,7 @@ static void convert_to_list(t_ush *ush) {
     set_args(ush, result);
     while (result) {
         result = mx_strsep(&str_point, " ");
-        printf("%d\n", mx_strlen(result));
+
         if (!result)
             break;
         else if (strcmp(result, ";") == 0) {

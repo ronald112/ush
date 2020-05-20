@@ -26,11 +26,14 @@ typedef struct {
 
 typedef struct {
     bool flags[3];
-    char *bin_path;
+    char *bin_path[MAX_ARGS];
     char *new_path;
     char *new_envs[MAX_ARGS];
-    char *uns_envs;
+    char *uns_envs[MAX_ARGS];
     int a_ind;
+    int u_ind;
+    int n_ind;
+    int flag_ind;
     bool sucsess;
 
 } t_env;

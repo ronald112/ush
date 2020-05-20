@@ -58,3 +58,13 @@ void mx_env_unset(char *args[MAX_ARGS]);
 void mx_env_free(t_env *my_env);
 // initialize object of t_env struct
 t_env *mx_env_init(t_pargs *pargs);
+// 
+bool mx_env_name_var(char *arg);
+// 
+void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env);
+// 
+void mx_env_u_set(char *args[MAX_ARGS], t_env *my_env);
+// 
+void mx_env_usage(char illegal_opt);
+// 
+void mx_flag_dash(char *args[MAX_ARGS], t_env *my_env);
