@@ -65,6 +65,14 @@ void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env);
 // 
 void mx_env_u_set(char *args[MAX_ARGS], t_env *my_env);
 // 
-void mx_env_usage(char illegal_opt);
+void mx_env_usage(char illegal_opt, int err_case);
 // 
 void mx_flag_dash(char *args[MAX_ARGS], t_env *my_env);
+// 
+void mx_env_exec(t_env *my_env);
+// 
+int mx_env_get_size(char **arr);
+// 
+char *mx_env_get_name(char *env_str);
+// 
+void mx_env_print_all_env(void);

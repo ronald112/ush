@@ -1,10 +1,14 @@
 #include "ush.h"
 
-void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env) {
+static void init_start(t_env *my_env) {
     my_env->flags[1] = true;
     if (my_env->new_path)
-            free(my_env->new_path);
+        free(my_env->new_path);
     my_env->flag_ind++;
+}
+
+void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env) {
+    init_start(my_env);
     if (args[my_env->a_ind][my_env->flag_ind]) {
         my_env->new_path = mx_strdup(&args[my_env->a_ind++][my_env->flag_ind]);
     }

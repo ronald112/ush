@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "libmx.h": "c",
-        "type_traits": "c"
+        "type_traits": "c",
+        "complex": "c"
     }
 }

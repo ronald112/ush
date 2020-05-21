@@ -43,5 +43,5 @@ int mx_ch_dir(t_pargs *pargs) {
     else if (str_len == 0)
         mx_exec_cd_flag2();
 
-    return 2; // 2 - SUCSESS
+    return 2; // 2 - SUCCESS
 }

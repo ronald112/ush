@@ -14,7 +14,7 @@ static void set_init_variables(t_env *my_env) {
     my_env->n_ind = 0;
     my_env->u_ind = 0;
     my_env->flag_ind = 1;
-    my_env->sucsess = 0;
+    my_env->success = 1;
 }
 
 static void no_dash(char *args[MAX_ARGS], t_env *my_env) {
@@ -47,7 +47,7 @@ void mx_flag_dash(char *args[MAX_ARGS], t_env *my_env) {
         mx_env_u_set(args, my_env);
     }
     else {
-        mx_env_usage(args[my_env->a_ind][my_env->flag_ind]);
+        mx_env_usage(args[my_env->a_ind][my_env->flag_ind], 1);
     }
 }
 

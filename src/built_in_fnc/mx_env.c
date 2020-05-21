@@ -1,8 +1,25 @@
 #include "ush.h"
 
-static void print_set_env(void) {
+void mx_env_print_all_env(void) {
     for (int i = 0; environ[i]; ++i) {
         printf("%s\n", environ[i]);
+    }
+}
+
+static void env_success_chk(t_env *my_env) {
+    if (my_env->flags[1] && (mx_strlen(my_env->new_path) == 0)) {
+        mx_env_usage('P', 2);
+        my_env->success = 0;
+    }
+    if (my_env->flags[2]) {
+        int size = 0;
+
+        for (int i = 0; my_env->uns_envs[i]; ++i)
+            size += mx_strlen(my_env->uns_envs[i]);
+        if (size == 0) {
+            mx_env_usage('u', 2);
+            my_env->success = 0;
+        }
     }
 }
 
@@ -35,11 +52,14 @@ int mx_env(t_pargs *pargs) {
         t_env *my_env = mx_env_init(pargs);
 
         dbg_print_env_struct(my_env);
+        env_success_chk(my_env);
+        if (my_env->success)
+            mx_env_exec(my_env);
         mx_env_free(my_env);
         free(my_env);
     }
     else {
-        print_set_env();
+        mx_env_print_all_env();
     }
     
     return 3;

@@ -18,7 +18,7 @@ static bool is_valid_str(char *args[MAX_ARGS], t_env *my_env) {
         fprintf(stderr, "env: unsetenv %s: Invalid argument", args[i + 1]);
         return 0;
     }
-    my_env->sucsess = 1;
+    my_env->success = 0;
     return 1;
 }
 
