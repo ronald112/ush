@@ -35,5 +35,4 @@ typedef struct {
     int n_ind;
     int flag_ind;
     bool success;
-
 } t_env;

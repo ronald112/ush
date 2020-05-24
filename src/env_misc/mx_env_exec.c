@@ -5,7 +5,8 @@ static void env_clean(t_env *my_env) {
         for (int i = mx_env_get_size(NULL) - 1; i >= 0; --i) {
             char *unset = mx_env_get_name(environ[i]);
 
-            unsetenv(unset);
+            if (strcmp(unset, "PWD") != 0 && strcmp(unset, "_") != 0)
+                unsetenv(unset);
             free(unset);
         }
     }

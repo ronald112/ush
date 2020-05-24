@@ -41,6 +41,7 @@ static void dbg_print_env_struct(t_env *my_env) {
     printf("\na_ind: %d\n", my_env->a_ind);
     printf("n_ind: %d\n", my_env->n_ind);
     printf("flag_ind: %d\n", my_env->flag_ind);
+    printf("success: %d\n", my_env->success);
 }
 
 int mx_env(t_pargs *pargs) {
@@ -51,7 +52,8 @@ int mx_env(t_pargs *pargs) {
     if (pargs->args[1] && str_len) {
         t_env *my_env = mx_env_init(pargs);
 
-        dbg_print_env_struct(my_env);
+        if (DBG_MESSAGE_VISIBLE == 1)
+            dbg_print_env_struct(my_env);
         env_success_chk(my_env);
         if (my_env->success)
             mx_env_exec(my_env);
@@ -61,6 +63,5 @@ int mx_env(t_pargs *pargs) {
     else {
         mx_env_print_all_env();
     }
-    
     return 3;
 }

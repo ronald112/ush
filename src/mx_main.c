@@ -1,12 +1,19 @@
 #include "ush.h"
 
-static t_ush *init_struct() {
+static t_ush *init_struct(void) {
     t_ush *ush = (t_ush *)malloc(sizeof(t_ush));
-    char *shell_pwd = mx_strjoin(getenv("PWD"), "/ush");
+    // char *ush_misc = mx_strjoin(getenv("PWD"), "/ush");
+    char *ush_misc = NULL;
 
+    // setenv("SHELL", ush_misc, 1);
+    // free(ush_misc);
+    if ((ush_misc = getenv("SHLVL")) == NULL)
+        setenv("SHLVL", "1", 1);
+    else {
+        setenv("SHLVL", (ush_misc = mx_itoa(mx_atoi(ush_misc) + 1)), 1);
+        free(ush_misc);
+    }
     ush->hist_count = 0;
-    setenv("SHELL", shell_pwd, 1);
-    free(shell_pwd);
     return ush;
 }
 

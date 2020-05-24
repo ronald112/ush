@@ -58,21 +58,21 @@ void mx_env_unset(char *args[MAX_ARGS]);
 void mx_env_free(t_env *my_env);
 // initialize object of t_env struct
 t_env *mx_env_init(t_pargs *pargs);
-// 
+// checking if the arg is NAME=ARG
 bool mx_env_name_var(char *arg);
-// 
+// set and check parameters for "-P" flag
 void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env);
-// 
+// set and check parameters for "-u" flag
 void mx_env_u_set(char *args[MAX_ARGS], t_env *my_env);
-// 
+// print error massage "usage" of env command
 void mx_env_usage(char illegal_opt, int err_case);
-// 
+// case env with no flags
 void mx_flag_dash(char *args[MAX_ARGS], t_env *my_env);
-// 
+// main execution function for env
 void mx_env_exec(t_env *my_env);
-// 
+// get curr nmb of lines in environ variable
 int mx_env_get_size(char **arr);
-// 
+// get NAME from NAME=ARG
 char *mx_env_get_name(char *env_str);
-// 
+// printing all environ variable to stdout
 void mx_env_print_all_env(void);

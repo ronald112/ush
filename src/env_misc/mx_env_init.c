@@ -26,8 +26,9 @@ static void no_dash(char *args[MAX_ARGS], t_env *my_env) {
             break;
         }
     }
-    for (int i = 0; args[my_env->a_ind]; my_env->a_ind++)
+    for (int i = 0; args[my_env->a_ind]; my_env->a_ind++) {
         my_env->bin_path[i++] = mx_strdup(args[my_env->a_ind]);
+    }
 }
 
 void mx_flag_dash(char *args[MAX_ARGS], t_env *my_env) {
@@ -61,6 +62,5 @@ t_env *mx_env_init(t_pargs *pargs) {
     else {
         no_dash(pargs->args, my_env);
     }
-
     return my_env;
 }

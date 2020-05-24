@@ -22,7 +22,7 @@ void mx_env_P_set(char *args[MAX_ARGS], t_env *my_env) {
     }
     else {
         for (int i = 0; args[my_env->a_ind]; my_env->a_ind++)
-            my_env->bin_path[i] = mx_strdup(args[my_env->a_ind]);
+            my_env->bin_path[i++] = mx_strdup(args[my_env->a_ind]);
     }
     return;
 }
