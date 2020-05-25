@@ -16,11 +16,11 @@ This is a simple representation of shell for UNIX system's. It can manage severa
 
 ### Builtins-table:
 
-| Builtin |                       Description                      |
-|:-------:|:------------------------------------------------------:|
-| exit    | exit from ush                                          |
-| cd      | change directory                                       |
-| env     | print environ variable                                 |
-| pwd     | print working directory                                |
+| Builtin | Flags   |                       Description                      |
+|:-------:|:-------:|:------------------------------------------------------:|
+| exit    |         | exit from ush                                          |
+| cd      | S,P     | change directory                                       |
+| env     | i,P,u   | print environ variable                                 |
+| pwd     | P,L     | print working directory                                |
 
 -----------
