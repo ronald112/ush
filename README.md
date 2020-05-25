@@ -21,5 +21,6 @@ This is a simple representation of shell for UNIX system's. It can manage severa
 | exit    | exit from ush                                          |
 | cd      | change directory                                       |
 | env     | print environ variable                                 |
+| pwd     | print working directory                                |
 
 -----------
