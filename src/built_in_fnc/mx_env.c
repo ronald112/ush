@@ -23,6 +23,7 @@ static void env_success_chk(t_env *my_env) {
     }
 }
 
+// DEBUG
 static void dbg_print_env_struct(t_env *my_env) {
     printf("\nbool flags\n");
     for (int i = 0; i < 3; ++i)

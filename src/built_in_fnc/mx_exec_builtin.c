@@ -5,9 +5,11 @@ int mx_exec_builtin(int cmd_ind, t_pargs *pargs) {
     case 1: //fallthrough
         return mx_exit(pargs);
     case 2: //fallthrough
-        return mx_ch_dir(pargs);
+        return mx_cd(pargs);
     case 3: //fallthrough
         return mx_env(pargs);
+    case 4: //fallthrough
+        return mx_pwd(pargs);
     default:
         break;
     }

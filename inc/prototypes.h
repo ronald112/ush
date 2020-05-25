@@ -33,7 +33,7 @@ int mx_exec_builtin(int cmd_ind, t_pargs *pargs);
 // error case command not found
 void mx_cmd_not_fnd(char *str);
 // change current directory
-int mx_ch_dir(t_pargs *pargs);
+int mx_cd(t_pargs *pargs);
 // cd error handler
 void mx_error_cd(bool flags[], char **args);
 // exit command main function
@@ -76,3 +76,5 @@ int mx_env_get_size(char **arr);
 char *mx_env_get_name(char *env_str);
 // printing all environ variable to stdout
 void mx_env_print_all_env(void);
+// 
+int mx_pwd(t_pargs *pargs);

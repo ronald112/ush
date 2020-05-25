@@ -1,6 +1,6 @@
 #include "ush.h"
 
-static void exec_chdir(bool flags[4], char **args) {
+static void exec_chdir(bool flags[4], char *args[MAX_ARGS]) {
     if (flags[3])
         mx_exec_cd_flag3();
     else if (flags[2])
@@ -11,7 +11,7 @@ static void exec_chdir(bool flags[4], char **args) {
         mx_exec_cd_flag_else(args[1]);
 }
 
-static void chk_flag_and_args(char **args) {
+static void chk_flag_and_args(char *args[MAX_ARGS]) {
     bool flags[4] = {0, 0, 0, 0};
 
     for (int i = 1; args[i]; ++i) {
@@ -32,7 +32,7 @@ static void chk_flag_and_args(char **args) {
     exec_chdir(flags, args);
 }
 
-int mx_ch_dir(t_pargs *pargs) {
+int mx_cd(t_pargs *pargs) {
     int str_len = 0;
 
     for (int i = 1; pargs->args[i]; ++i)
