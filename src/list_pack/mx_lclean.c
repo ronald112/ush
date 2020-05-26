@@ -6,6 +6,8 @@ static void clean_args(t_semicomm *cur_semi) {
 
     while (cur) {
         next = cur->next;
+        for (int i = 0; cur->args[i]; ++i)
+            free(cur->args[i]);
         free(cur);
         cur = next;
     }

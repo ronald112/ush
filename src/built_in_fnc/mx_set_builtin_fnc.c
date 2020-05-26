@@ -7,6 +7,7 @@ char **mx_set_builtin_fnc() {
     own_cmds[1] = "cd";
     own_cmds[2] = "env";
     own_cmds[3] = "pwd";
+    own_cmds[4] = "which";
     own_cmds[BUILTIN_FNC] = NULL;
     return own_cmds;
 }

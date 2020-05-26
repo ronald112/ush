@@ -33,15 +33,9 @@ static void chk_flag_and_args(char *args[MAX_ARGS]) {
 }
 
 int mx_cd(t_pargs *pargs) {
-    int str_len = 0;
-
-    for (int i = 1; pargs->args[i]; ++i)
-        str_len += mx_strlen(pargs->args[i]);
-    if (pargs->args[1] && str_len) {
+    if (pargs->args[1])
         chk_flag_and_args(pargs->args);
-    }
-    else if (str_len == 0)
+    else
         mx_exec_cd_flag2();
-
     return 2; // 2 - SUCCESS
 }

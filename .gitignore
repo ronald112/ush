@@ -1,3 +1,6 @@
+# F*cking store
+.DS_Store
+
 # Prerequisites
 *.d
 
@@ -50,4 +53,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-.DS_Store
+

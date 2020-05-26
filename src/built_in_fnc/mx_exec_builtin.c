@@ -10,6 +10,8 @@ int mx_exec_builtin(int cmd_ind, t_pargs *pargs) {
         return mx_env(pargs);
     case 4: //fallthrough
         return mx_pwd(pargs);
+    case 5:
+        return mx_which(pargs);
     default:
         break;
     }

@@ -33,14 +33,14 @@ int main() {
         mx_clean_ush(ush);
     }
 
-    /*
-    for (t_semicomm *tmp_sc = ush->p_args; tmp_sc; tmp_sc = tmp_sc->next) {
-        for (t_pargs *tmp_args = tmp_sc->sargs; tmp_args; tmp_args = tmp_args->next) {
-            for (int i = 0; tmp_args->args[i] != NULL; i++)
-                printf("%2s[%d]", tmp_args->args[i], i);
-        }
-    }
-    */
+    // for (t_semicomm *tmp_sc = ush->p_args; tmp_sc; tmp_sc = tmp_sc->next) {
+    //     for (t_pargs *tmp_args = tmp_sc->sargs; tmp_args; tmp_args = tmp_args->next) {
+    //         for (int i = 0; tmp_args->args[i] != NULL; i++)
+    //             printf("%2s[%d]", tmp_args->args[i], i);
+    //     }
+    // }
+    
+    
     system("leaks -q ush");
     return 0;
 }

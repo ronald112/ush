@@ -46,11 +46,7 @@ static void dbg_print_env_struct(t_env *my_env) {
 }
 
 int mx_env(t_pargs *pargs) {
-    int str_len = 0;
-
-    for (int i = 1; pargs->args[i]; ++i)
-        str_len += mx_strlen(pargs->args[i]);
-    if (pargs->args[1] && str_len) {
+    if (pargs->args[1]) {
         t_env *my_env = mx_env_init(pargs);
 
         if (DBG_MESSAGE_VISIBLE == 1)

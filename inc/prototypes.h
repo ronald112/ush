@@ -78,3 +78,5 @@ char *mx_env_get_name(char *env_str);
 void mx_env_print_all_env(void);
 // 
 int mx_pwd(t_pargs *pargs);
+// 
+int mx_which(t_pargs *pargs);
