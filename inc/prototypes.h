@@ -76,7 +76,9 @@ int mx_env_get_size(char **arr);
 char *mx_env_get_name(char *env_str);
 // printing all environ variable to stdout
 void mx_env_print_all_env(void);
-// 
+// builtin cmd to show cur working dir
 int mx_pwd(t_pargs *pargs);
-// 
+// builtin cmd to show path to bin file
 int mx_which(t_pargs *pargs);
+// builtin echo
+int mx_echo(t_pargs *pargs);

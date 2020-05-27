@@ -21,31 +21,37 @@ static void which_exec(char *args[MAX_ARGS], bool flags[2], bool status) {
     free(env_path);
 }
 
+static void which_error(char c) {
+    fprintf(stderr, "which: illegal option -- %c\n", c);
+}
+
 static void flags_check(char *args[MAX_ARGS], bool flags[2]) {
     bool status = 0;
+    bool success = 1;
 
-    if (strcmp(args[1], "-a") == 0) {
-        flags[0] = 1;
-        status = 1;
+    for (int i = 1; args[1][i]; ++i) {
+        if (args[1][i] == 'a') {
+            flags[0] = 1;
+            status = 1;
+        }
+        else if (args[1][i] == 's') {
+            flags[1] = 1;
+            status = 1;
+        }
+        else {
+            which_error(args[1][i]);
+            success = 0;
+            break;
+        }
     }
-    else if (strcmp(args[1], "-s") == 0) {
-        flags[1] = 1;
-        status = 1;
-    }
-    else if ((strcmp(args[1], "-as") == 0) || (strcmp(args[1], "-sa") == 0)) {
-        flags[0] = 1;
-        flags[1] = 1;
-        status = 1;
-    }
-    // else
-        // which_error();
-    which_exec(args, flags, status);
+    if (success)
+        which_exec(args, flags, status);
 }
 
 int mx_which(t_pargs *pargs) {
     bool flags[2] = {0, 0};
 
-    if (pargs->args[1])
+    if (pargs->args[1] && pargs->args[1][0] == '-')
         flags_check(pargs->args, flags);
     else
         which_exec(pargs->args, flags, 0);
