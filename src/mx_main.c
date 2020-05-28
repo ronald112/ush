@@ -20,6 +20,7 @@ static t_ush *init_struct(void) {
 int main() {
     t_ush *ush = init_struct();
     int pid_stat = 0;
+    errno = 0;
 
     signal(SIGINT, SIG_DFL);
     while (1) {
@@ -42,5 +43,5 @@ int main() {
     
     
     system("leaks -q ush");
-    return 0;
+    return errno;
 }

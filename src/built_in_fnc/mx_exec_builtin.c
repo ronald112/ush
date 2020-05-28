@@ -1,21 +1,17 @@
 #include "ush.h"
 
 int mx_exec_builtin(int cmd_ind, t_pargs *pargs) {
-    switch (cmd_ind) {
-    case 1: //fallthrough
+    if (cmd_ind == 1)
         return mx_exit(pargs);
-    case 2: //fallthrough
+    else if (cmd_ind == 2)
         return mx_cd(pargs);
-    case 3: //fallthrough
+    else if (cmd_ind == 3)
         return mx_env(pargs);
-    case 4: //fallthrough
+    else if (cmd_ind == 4)
         return mx_pwd(pargs);
-    case 5:
+    else if (cmd_ind == 5)
         return mx_which(pargs);
-    case 6:
+    else if (cmd_ind == 6)
         return mx_echo(pargs);
-    default:
-        break;
-    }
     return -1;
 }

@@ -26,7 +26,6 @@ static void exec_no_builtin_no_pipe(t_pargs *tmp_j, int *pid_status) {
 static void exec_no_pipe(t_pargs *tmp_j, int *pid_status) {
     int builtin_rslt = 0;
 
-    errno = 0;
     if ((builtin_rslt =  mx_chk_bi_fnk(tmp_j->args[0])) > 0) {
         if (mx_exec_builtin(builtin_rslt, tmp_j) < 0)
             mx_cmd_not_fnd(tmp_j->args[0]);

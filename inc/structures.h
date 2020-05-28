@@ -22,6 +22,7 @@ typedef struct {
     t_history *lhist_str;
     t_semicomm *p_args;
     int hist_count;
+    int last_exit;
 } t_ush;
 
 typedef struct {

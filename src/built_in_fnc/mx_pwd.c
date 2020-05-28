@@ -27,22 +27,16 @@ static void chk_flag_and_args(char *args[MAX_ARGS], bool flag) {
 
 // change if bash in reference
 int mx_pwd(t_pargs *pargs) {
-    int pid_stat = 0;
     bool flag = 0;
     pid_t pid;
 
-    if ((pid = fork()) == 0) {
-        if (pargs->args[2]) {
-            fprintf(stderr, "pwd: too many arguments\n");
-            exit(1);
-        }
-        else if (pargs->args[1])
-            chk_flag_and_args(pargs->args, flag);
-        else
-            exec_pwd(flag);
-        exit(0);
+    if (pargs->args[2]) {
+        fprintf(stderr, "pwd: too many arguments\n");
+        exit(1);
     }
+    else if (pargs->args[1])
+        chk_flag_and_args(pargs->args, flag);
     else
-        waitpid(pid, &pid_stat, WUNTRACED);
+        exec_pwd(flag);
     return 4;
 }
