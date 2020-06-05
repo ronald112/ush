@@ -24,3 +24,5 @@ This is a simple representation of shell for UNIX system's. It can manage severa
 | pwd     | P,L     | print working directory                                |
 
 -----------
+### TODO:
+echo, fg, export, which, unset, manage signals, command history, improvements to parser.
