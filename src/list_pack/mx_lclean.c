@@ -18,7 +18,7 @@ void mx_clean_ush(t_ush *ush) {
     t_semicomm *cur = ush->p_args;
     t_semicomm *next = NULL;
 
-    while (cur ) {
+    while (cur) {
         clean_args(cur);
         next = cur->next;
         free(cur);
